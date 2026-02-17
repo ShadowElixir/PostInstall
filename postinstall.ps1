@@ -30,4 +30,5 @@ winget install Betterbird.Betterbird --accept-package-agreements --accept-source
 winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
 # Debloat script (credit: christitustech)
+Write-Host "Debloating Windows..."
 & ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/debloat.json -Run
