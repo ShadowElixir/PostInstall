@@ -1,6 +1,14 @@
 # Windows Activation (credit: massgravel)
-irm https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/refs/heads/master/MAS/Separate-Files-Version/Activators/HWID_Activation.cmd | iex
+Write-Host "Activating Windows..."
+irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
 
+# Install WinGet if not installed
+Write-Host "Installing WinGet..."
+Install-PackageProvider -Name NuGet
+Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery
+Repair-WinGetPackageManager -AllUsers
+
+Write-Host "Installing Programs & Debloating Windows..."
 # Essentials Chris Titus' script doesn't install
 winget install Romanitho.Winget-AutoUpdate
 winget install jurplel.qView
