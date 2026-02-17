@@ -26,10 +26,13 @@ winget install qBittorrent.qBittorrent --accept-package-agreements --accept-sour
 winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 winget install AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
 winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
+winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
 # Install basic PowerShell profile
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
+New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/profile.ps1 >> $PROFILE
 
 # Debloat script (credit: christitustech)
