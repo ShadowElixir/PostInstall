@@ -30,7 +30,7 @@ winget install Betterbird.Betterbird --accept-package-agreements --accept-source
 winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
 # Install basic PowerShell profile
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/profile.ps1 >> $PROFILE.CurrentUserAllHosts
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/profile.ps1 >> $PROFILE
 
 # Debloat script (credit: christitustech)
 Write-Host "Debloating Windows..."
