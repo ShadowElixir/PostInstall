@@ -22,78 +22,10 @@
                       "WPFTweaksLocation"
                   ],
     "Install":  [
-                    {
-                        "winget":  "7zip.7zip",
-                        "choco":  "7zip"
-                    },
-                    {
-                        "winget":  "LibreWolf.LibreWolf",
-                        "choco":  "librewolf"
-                    },
-                    {
-                        "winget":  "OBSProject.OBSStudio",
-                        "choco":  "obs-studio"
-                    },
-                    {
-                        "winget":  "Fastfetch-cli.Fastfetch",
-                        "choco":  "na"
-                    },
-                    {
-                        "winget":  "SumatraPDF.SumatraPDF",
-                        "choco":  "sumatrapdf"
-                    },
-                    {
-                        "winget":  "qBittorrent.qBittorrent",
-                        "choco":  "qbittorrent"
-                    },
-                    {
-                        "winget":  "Klocman.BulkCrapUninstaller",
-                        "choco":  "bulk-crap-uninstaller"
-                    },
-                    {
-                        "winget":  "yt-dlp.yt-dlp",
-                        "choco":  "yt-dlp"
-                    },
-                    {
-                        "winget":  "Brave.Brave",
-                        "choco":  "brave"
-                    },
-                    {
-                        "winget":  "Notepad++.Notepad++",
-                        "choco":  "notepadplusplus"
-                    },
-                    {
-                        "winget":  "AdrienAllard.FileConverter",
-                        "choco":  "file-converter"
-                    },
-                    {
-                        "winget":  "Microsoft.Sysinternals.Autoruns",
-                        "choco":  "autoruns"
-                    },
-                    {
-                        "winget":  "ONLYOFFICE.DesktopEditors",
-                        "choco":  "onlyoffice"
-                    },
-                    {
-                        "winget":  "Betterbird.Betterbird",
-                        "choco":  "betterbird"
-                    }
+
                 ],
     "WPFInstall":  [
-                       "WPFInstall7zip",
-                       "WPFInstalllibrewolf",
-                       "WPFInstallobs",
-                       "WPFInstallfastfetch",
-                       "WPFInstallsumatra",
-                       "WPFInstallqbittorrent",
-                       "WPFInstallbulkcrapuninstaller",
-                       "WPFInstallytdlp",
-                       "WPFInstallbrave",
-                       "WPFInstallnotepadplus",
-                       "WPFInstallfileconverter",
-                       "WPFInstallautoruns",
-                       "WPFInstallonlyoffice",
-                       "WPFInstallbetterbird"
+
                    ],
     "WPFFeature":  [
 
