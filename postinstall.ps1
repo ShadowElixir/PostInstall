@@ -1,3 +1,7 @@
+# Windows Activation (credit: massgravel)
+Write-Host "Activating Windows..."
+irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
+
 # Install WinGet if not installed
 Write-Host "Installing WinGet..."
 Install-PackageProvider -Name NuGet
@@ -27,7 +31,3 @@ winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-so
 
 # Debloat script (credit: christitustech)
 & ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/debloat.json -Run
-
-# Windows Activation (credit: massgravel)
-Write-Host "Activating Windows..."
-irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
