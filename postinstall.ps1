@@ -29,6 +29,9 @@ winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --acc
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
+# Install basic PowerShell profile
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/profile.ps1 >> $PROFILE.CurrentUserAllHosts
+
 # Debloat script (credit: christitustech)
 Write-Host "Debloating Windows..."
 & ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/debloat.json -Run
@@ -41,7 +44,10 @@ reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Backgrou
 
 # Optional
 
+# Clipboard-related
 # reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "AllowCrossDeviceClipboard" /f
+
+# Copilot-related
 # reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /f
 # reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "PerformedOneTimeHideOfShowDesktopButtonForCopilot" /f
 # reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowCopilotButton" /f
