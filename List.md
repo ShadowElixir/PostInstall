@@ -18,4 +18,5 @@ This script will install the following software using WinGet:
 - Autoruns (from Microsoft Sysinternals)
 - Git
 - Betterbird (Email client based on Mozilla Thunderbird)
+- TrafficMonitor Lite (Internet monitoring on the taskbar or on a floating window)
 - OnlyOffice
