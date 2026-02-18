@@ -13,7 +13,7 @@ if ($choice -eq 'i') {
 
 if ($choice -eq 'y') {
     Write-Host "Starting PostInstall..." -F Green
-    irm https://cutt.ly/postinstall | iex
+    irm cutt.ly/postinstall | iex
 } 
 else {
     Write-Host "Cancelled." -F Red
