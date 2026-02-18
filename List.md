@@ -10,7 +10,7 @@ This script will install the following software using WinGet:
 - 7zip
 - LibreWolf (Firefox-based browser)
 - Brave (Chromium-based browser)
-- OBS Studio
+- OBS Studio (Screen recorder and virtual camera)
 - SumatraPDF
 - qBittorrent
 - Bulk Crap Uninstaller
