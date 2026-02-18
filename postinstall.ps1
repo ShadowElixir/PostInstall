@@ -28,6 +28,7 @@ winget install AdrienAllard.FileConverter --accept-package-agreements --accept-s
 winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
+winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
 winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
 # Install basic PowerShell profile
