@@ -29,7 +29,6 @@ winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --acc
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
-winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
 
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
@@ -45,6 +44,18 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "A
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v "DODownloadMode" /f
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /f
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" /v "GlobalUserDisabled" /f
+
+# For OnlyOffice
+$onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
+
+if ($onlyoffice -eq 'y') {
+    Write-Host "Installing OnlyOffice using WinGet..." -F Green
+    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
+    Write-Host "PostInstall Script Completed." -F Green
+} 
+else {
+    Write-Host "PostInstall Script Completed." -F Green
+}
 
 # Optional
 
