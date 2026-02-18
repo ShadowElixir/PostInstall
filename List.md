@@ -1,0 +1,21 @@
+This script will install the following software using WinGet:
+
+- Winget-AutoUpdate
+- Fastfetch
+- yt-dlp
+- Notepad++
+- qView (Image Viewer)
+- K-Lite Codec Pack Mega (Media Player + Codecs)
+- AB Download Manager
+- 7zip
+- LibreWolf (Firefox-based browser)
+- Brave (Chromium-based browser)
+- OBS Studio
+- SumatraPDF
+- qBittorrent
+- Bulk Crap Uninstaller
+- File Converter
+- Autoruns (from Microsoft Sysinternals)
+- Git
+- Betterbird (Email client based on Mozilla Thunderbird)
+- OnlyOffice
