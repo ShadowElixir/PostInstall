@@ -63,7 +63,6 @@ reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Backgrou
 if ($store -eq 'y') {
     Write-Host "Installing Microsoft Store..." -F Green
     wsreset -i
-    Write-Host "PostInstall Script Completed." -F Green
 } 
 else {
     Write-Host "Skipped Microsoft Store installation." -F Red
@@ -73,6 +72,7 @@ else {
 if ($xbox -eq 'y') {
     Write-Host "Use the downloaded exe from Microsoft to install required Xbox components."
     Start-Process "https://aka.ms/GamingRepairTool" # Might automate this at some point
+    Write-Host "PostInstall Script Completed." -F Green
 } 
 else {
     Write-Host "PostInstall Script Completed." -F Green
