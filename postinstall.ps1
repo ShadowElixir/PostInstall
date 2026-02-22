@@ -1,7 +1,7 @@
 # User Choices
 $onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
-$store = Read-Host "Would you like to install Microsoft Store? (y/n)"
-$xbox = Read-Host "Would you like to install Xbox components? (y/n)"
+$store = Read-Host "Would you like to keep the Microsoft Store? (y/n)"
+$xbox = Read-Host "Would you like to keep Xbox components? (y/n)"
 
 # Windows Activation (credit: massgravel)
 Write-Host "Activating Windows..."
