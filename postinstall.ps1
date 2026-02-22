@@ -45,12 +45,23 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptim
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /f
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" /v "GlobalUserDisabled" /f
 
-# For OnlyOffice
+# OnlyOffice
 $onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
 
 if ($onlyoffice -eq 'y') {
     Write-Host "Installing OnlyOffice using WinGet..." -F Green
     winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
+} 
+else {
+    Write-Host "Skipped OnlyOffice Installation." -F Red
+}
+
+# Microsoft Store
+$store = Read-Host "Would you like to install Microsoft Store? (y/n)"
+
+if ($store -eq 'y') {
+    Write-Host "Installing Microsoft Store..." -F Green
+    wsreset -i
     Write-Host "PostInstall Script Completed." -F Green
 } 
 else {
