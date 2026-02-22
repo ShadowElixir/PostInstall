@@ -2,7 +2,7 @@
 A small script to use right after installing Windows.
 
 # Warning
-**This will uninstall all Microsoft Store (UWP) apps**.
+**This script will uninstall all Microsoft Store (UWP) apps**.
 
 But you have the option to reinstall the Microsoft Store and/or Xbox components.
 
