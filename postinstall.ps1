@@ -1,3 +1,8 @@
+# User Choices
+$onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
+$store = Read-Host "Would you like to install Microsoft Store? (y/n)"
+$xbox = Read-Host "Would you like to install Xbox components? (y/n)"
+
 # Windows Activation (credit: massgravel)
 Write-Host "Activating Windows..."
 irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
@@ -30,6 +35,15 @@ winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
 
+# OnlyOffice
+if ($onlyoffice -eq 'y') {
+    Write-Host "Installing OnlyOffice using WinGet..." -F Green
+    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
+} 
+else {
+    Write-Host "Skipped OnlyOffice installation." -F Red
+}
+
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
@@ -45,24 +59,20 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptim
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /f
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" /v "GlobalUserDisabled" /f
 
-# OnlyOffice
-$onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
-
-if ($onlyoffice -eq 'y') {
-    Write-Host "Installing OnlyOffice using WinGet..." -F Green
-    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
-} 
-else {
-    Write-Host "Skipped OnlyOffice Installation." -F Red
-}
-
 # Microsoft Store
-$store = Read-Host "Would you like to install Microsoft Store? (y/n)"
-
 if ($store -eq 'y') {
     Write-Host "Installing Microsoft Store..." -F Green
     wsreset -i
     Write-Host "PostInstall Script Completed." -F Green
+} 
+else {
+    Write-Host "Skipped Microsoft Store installation." -F Red
+}
+
+# Xbox
+if ($xbox -eq 'y') {
+    Write-Host "Use the downloaded exe from Microsoft to install required Xbox components."
+    Start-Process "https://aka.ms/GamingRepairTool" # Might automate this at some point
 } 
 else {
     Write-Host "PostInstall Script Completed." -F Green
