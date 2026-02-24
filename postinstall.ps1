@@ -51,7 +51,7 @@ irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/f
 
 # Debloat script (credit: christitustech)
 Write-Host "Debloating Windows..."
-& ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/debloat.json -Run
+& ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/debloat.json -Run
 
 # Reverting bad choices by debloat script
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "AllowClipboardHistory" /f
