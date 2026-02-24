@@ -7,7 +7,7 @@ Write-Host "4. Debloat Windows (using Chris Titus' debloat script)"
 $choice = Read-Host "Do you want to proceed? (y/n/i)"
 
 if ($choice -eq 'i') {
-    irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/List.md
+    irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/list.md
     $choice = Read-Host "Ready to run now? (y/n)"
 }
 
