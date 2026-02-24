@@ -47,7 +47,7 @@ else {
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/profile.ps1 >> $PROFILE
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/profile.ps1 >> $PROFILE
 
 # Debloat script (credit: christitustech)
 Write-Host "Debloating Windows..."
