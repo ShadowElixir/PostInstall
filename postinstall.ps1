@@ -9,8 +9,8 @@ irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/mai
 
 # Install WinGet if not installed
 Write-Host "Installing WinGet..."
-Install-PackageProvider -Name NuGet
-Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery
+Install-PackageProvider -Name NuGet -Force
+Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery -Force
 Repair-WinGetPackageManager -AllUsers
 
 # Essential programs
