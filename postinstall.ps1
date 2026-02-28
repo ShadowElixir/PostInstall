@@ -35,7 +35,7 @@ winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --acc
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
-# winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
+winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 
 # OnlyOffice
 if ($onlyoffice -eq 'y') {
