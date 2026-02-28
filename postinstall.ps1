@@ -30,12 +30,12 @@ winget install Brave.Brave --accept-package-agreements --accept-source-agreement
 winget install OBSProject.OBSStudio --accept-package-agreements --accept-source-agreements
 winget install SumatraPDF.SumatraPDF --accept-package-agreements --accept-source-agreements
 winget install qBittorrent.qBittorrent --accept-package-agreements --accept-source-agreements
-winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 winget install AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
 winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
+# winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 
 # OnlyOffice
 if ($onlyoffice -eq 'y') {
