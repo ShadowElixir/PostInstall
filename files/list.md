@@ -5,7 +5,7 @@ This script will install the following software using WinGet:
 - yt-dlp
 - Notepad++
 - qView (Image Viewer)
-- K-Lite Codec Pack Mega (Media Player + Codecs)
+- MPC-HC (Media Player)
 - AB Download Manager
 - 7zip
 - LibreWolf (Firefox-based browser)
