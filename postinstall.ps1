@@ -16,6 +16,7 @@ Repair-WinGetPackageManager -AllUsers
 # Essential programs
 Write-Host "Installing Programs..."
 winget install Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements
+echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
 winget install Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
 winget install yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
 winget install Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
