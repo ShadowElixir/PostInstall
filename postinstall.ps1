@@ -22,7 +22,7 @@ winget install Fastfetch-cli.Fastfetch --accept-package-agreements --accept-sour
 winget install yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
 winget install Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
 winget install jurplel.qView --accept-package-agreements --accept-source-agreements
-winget install CodecGuide.K-LiteCodecPack.Mega --accept-package-agreements --accept-source-agreements
+winget install CodecGuide.K-LiteCodecPack.Mega --accept-package-agreements --accept-source-agreements --override "/VERYSILENT /NORESTART /SUPPRESSMSGBOXES /LOADINF='https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/klcp_mega_unattended.ini'"
 winget install amir1376.ABDownloadManager --accept-package-agreements --accept-source-agreements
 winget install 7zip.7zip --accept-package-agreements --accept-source-agreements
 winget install LibreWolf.LibreWolf --accept-package-agreements --accept-source-agreements
