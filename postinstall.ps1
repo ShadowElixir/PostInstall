@@ -22,7 +22,7 @@ winget install Fastfetch-cli.Fastfetch --accept-package-agreements --accept-sour
 winget install yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
 winget install Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
 winget install jurplel.qView --accept-package-agreements --accept-source-agreements
-winget install clsid2.mpc-hc
+winget install clsid2.mpc-hc --accept-package-agreements --accept-source-agreements
 winget install amir1376.ABDownloadManager --accept-package-agreements --accept-source-agreements
 winget install 7zip.7zip --accept-package-agreements --accept-source-agreements
 winget install LibreWolf.LibreWolf --accept-package-agreements --accept-source-agreements
