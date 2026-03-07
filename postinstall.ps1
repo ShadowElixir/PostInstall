@@ -72,8 +72,12 @@ else {
 
 # Xbox
 if ($xbox -eq 'y') {
-    Write-Host "Use the downloaded exe from Microsoft to install required Xbox components."
-    Start-Process "https://aka.ms/GamingRepairTool" # Might automate this at some point
+    Write-Host "Installing Xbox components..." -F Green
+    winget install "9mv0b5hzvk9z" --source msstore --accept-package-agreements --accept-source-agreements # Xbox App
+    winget install "9wzdncrd1hkw" --source msstore --accept-package-agreements --accept-source-agreements # Xbox Identity Provider
+    winget install "9MWPM2CQNLHN" --source msstore --accept-package-agreements --accept-source-agreements # Gaming Services
+    winget install "9nzkpstsnw4p" --source msstore --accept-package-agreements --accept-source-agreements # Game Bar
+    winget install "9nknc0ld5nn6" --source msstore --accept-package-agreements --accept-source-agreements # Xbox Live in-game experience
     Write-Host "PostInstall Script Completed." -F Green
 } 
 else {
