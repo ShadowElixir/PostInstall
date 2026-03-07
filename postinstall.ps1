@@ -15,7 +15,7 @@ Repair-WinGetPackageManager -AllUsers
 
 # Essential programs
 Write-Host "Installing Programs..."
-winget install Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --arguments "USERCONTEXT=1 UPDATESINTERVAL=Daily"
+winget install Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
 winget install Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
