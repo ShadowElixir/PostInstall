@@ -3,6 +3,7 @@ Write-Host "1. Activate Windows (Using MAS)"
 Write-Host "2. Install essential programs using winget (Type 'i' for info)"
 Write-Host "3. Install a basic powershell profile with fastfetch"
 Write-Host "4. Debloat Windows (using Chris Titus' debloat script)"
+Write-Host "WARNING: This will delete all MS Store (UWP) apps!" -F Red
 
 $choice = Read-Host "Do you want to proceed? (y/n/i)"
 
