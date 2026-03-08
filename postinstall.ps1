@@ -18,27 +18,30 @@ Repair-WinGetPackageManager -AllUsers
 
 # Essential programs
 Write-Host "Installing Programs..." -F Green
-winget install Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
+winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
-winget install Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
-winget install yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
-winget install Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
-winget install jurplel.qView --accept-package-agreements --accept-source-agreements
-winget install clsid2.mpc-hc --accept-package-agreements --accept-source-agreements
-winget install amir1376.ABDownloadManager --accept-package-agreements --accept-source-agreements
-winget install 7zip.7zip --accept-package-agreements --accept-source-agreements
-winget install LibreWolf.LibreWolf --accept-package-agreements --accept-source-agreements
-winget install Brave.Brave --accept-package-agreements --accept-source-agreements
-winget install OBSProject.OBSStudio --accept-package-agreements --accept-source-agreements
-winget install SumatraPDF.SumatraPDF --accept-package-agreements --accept-source-agreements
-winget install qBittorrent.qBittorrent --accept-package-agreements --accept-source-agreements
-winget install AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
-winget install Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
-winget install Git.Git --accept-package-agreements --accept-source-agreements
-winget install Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
-winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
-winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
+winget install -e --id Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
+winget install -e --id yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
+winget install -e --id Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
+winget install -e --id jurplel.qView --accept-package-agreements --accept-source-agreements
+winget install -e --id clsid2.mpc-hc --accept-package-agreements --accept-source-agreements
+winget install -e --id amir1376.ABDownloadManager --accept-package-agreements --accept-source-agreements
+winget install -e --id 7zip.7zip --accept-package-agreements --accept-source-agreements
+winget install -e --id LibreWolf.LibreWolf --accept-package-agreements --accept-source-agreements
+winget install -e --id Brave.Brave --accept-package-agreements --accept-source-agreements
+winget install -e --id OBSProject.OBSStudio --accept-package-agreements --accept-source-agreements
+winget install -e --id SumatraPDF.SumatraPDF --accept-package-agreements --accept-source-agreements
+winget install -e --id qBittorrent.qBittorrent --accept-package-agreements --accept-source-agreements
+winget install -e --id AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
+winget install -e --id Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
+winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements
+winget install -e --id Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
+winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
+winget install -e --id Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
+if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
+    winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
+}
 
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
@@ -98,12 +101,12 @@ else {
 # Office
 if ($office -eq '1') {
     Write-Host "Installing OnlyOffice using WinGet..." -F Green
-    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
+    winget install -e --id ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
     Write-Host "PostInstall script completed." -F Green
 }
 elseif ($office -eq '2') {
     Write-Host "Installing Office Deployment Tool using WinGet..." -F Green
-    winget install Microsoft.OfficeDeploymentTool --accept-package-agreements --accept-source-agreements
+    winget install -e --id Microsoft.OfficeDeploymentTool --accept-package-agreements --accept-source-agreements
     Write-Host "Installing Office using ODT" -F Green
     & $Env:ProgramFiles\OfficeDeploymentTool\setup.exe /configure https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/office.xml
     Write-Host "Activating Office" -F Green
