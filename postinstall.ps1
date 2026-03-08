@@ -43,7 +43,7 @@ if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
 
 # Additional Configuration
 Write-Host "Configuring Winget-AutoUpdate" -F Blue
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "$Env:ProgramFiles\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
 
 Write-Host "Configuring LibreWolf" -F Blue
