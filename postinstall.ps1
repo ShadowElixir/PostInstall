@@ -104,6 +104,7 @@ if ($office -eq '1') {
 elseif ($office -eq '2') {
     Write-Host "Installing Office Deployment Tool using WinGet..." -F Green
     winget install Microsoft.OfficeDeploymentTool --accept-package-agreements --accept-source-agreements
+    Write-Host "Installing Office using ODT" -F Green
     & $Env:ProgramFiles\OfficeDeploymentTool\setup.exe /configure https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/office.xml
     Write-Host "Activating Office" -F Green
     irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-office.ps1 | iex
