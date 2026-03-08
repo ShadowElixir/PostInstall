@@ -19,8 +19,6 @@ Repair-WinGetPackageManager -AllUsers
 # Essential programs
 Write-Host "Installing Programs..." -F Green
 winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
 winget install -e --id Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
 winget install -e --id yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
 winget install -e --id Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
@@ -43,6 +41,13 @@ if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
 }
 
+# Additional Configuration
+Write-Host "Configuring Winget-AutoUpdate" -F Blue
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
+
+Write-Host "Configuring LibreWolf" -F Blue
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg | Out-File %USERPROFILE%\.librewolf\librewolf.overrides.cfg
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
