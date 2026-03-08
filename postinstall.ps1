@@ -3,8 +3,8 @@ Write-Host "Press 0 for No Office Suite"
 Write-Host "Press 1 for OnlyOffice"
 Write-Host "Press 2 for Microsoft Office"
 $office = Read-Host "Would you like to an Office Suite? (0/1/2)"
-$store = Read-Host "Would you like to keep the Microsoft Store? (y/n)"
-$xbox = Read-Host "Would you like to keep Xbox components? (y/n)"
+$store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
+$xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
 
 # Windows Activation (credit: massgravel)
 Write-Host "Activating Windows..." -F Green
