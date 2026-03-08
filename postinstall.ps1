@@ -48,6 +48,7 @@ irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/f
 
 Write-Host "Configuring LibreWolf" -F Blue
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg | Out-File %USERPROFILE%\.librewolf\librewolf.overrides.cfg
+
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
