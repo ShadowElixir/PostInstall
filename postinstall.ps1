@@ -1,20 +1,23 @@
 # User Choices
-$onlyoffice = Read-Host "Would you like to install OnlyOffice? (y/n)"
+Write-Host "Press 0 for No Office Suite"
+Write-Host "Press 1 for OnlyOffice"
+Write-Host "Press 2 for Microsoft Office"
+$office = Read-Host "Would you like to an Office Suite? (0/1/2)"
 $store = Read-Host "Would you like to keep the Microsoft Store? (y/n)"
 $xbox = Read-Host "Would you like to keep Xbox components? (y/n)"
 
 # Windows Activation (credit: massgravel)
-Write-Host "Activating Windows..."
+Write-Host "Activating Windows..." -F Green
 irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
 
 # Install WinGet if not installed
-Write-Host "Installing WinGet..."
+Write-Host "Installing WinGet..." -F Green
 Install-PackageProvider -Name NuGet -Force
 Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery -Force
 Repair-WinGetPackageManager -AllUsers
 
 # Essential programs
-Write-Host "Installing Programs..."
+Write-Host "Installing Programs..." -F Green
 winget install Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | Out-File "C:\Program Files\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
@@ -37,22 +40,13 @@ winget install Betterbird.Betterbird --accept-package-agreements --accept-source
 winget install zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
 winget install Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 
-# OnlyOffice
-if ($onlyoffice -eq 'y') {
-    Write-Host "Installing OnlyOffice using WinGet..." -F Green
-    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
-} 
-else {
-    Write-Host "Skipped OnlyOffice installation." -F Red
-}
-
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
 irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/profile.ps1 >> $PROFILE
 
 # Debloat script (credit: christitustech)
-Write-Host "Debloating Windows..."
+Write-Host "Debloating Windows..." -F Green
 
 $log = "$env:TEMP\debloat.log"
 
@@ -96,10 +90,27 @@ if ($xbox -eq 'y') {
     winget install "9MWPM2CQNLHN" --source msstore --accept-package-agreements --accept-source-agreements # Gaming Services
     winget install "9nzkpstsnw4p" --source msstore --accept-package-agreements --accept-source-agreements # Game Bar
     winget install "9nknc0ld5nn6" --source msstore --accept-package-agreements --accept-source-agreements # Xbox Live in-game experience
-    Write-Host "PostInstall Script Completed." -F Green
 } 
 else {
-    Write-Host "PostInstall Script Completed." -F Green
+    Write-Host "Skipped Xbox installation." -F Red
+}
+
+# Office
+if ($office -eq '1') {
+    Write-Host "Installing OnlyOffice using WinGet..." -F Green
+    winget install ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
+    Write-Host "PostInstall script completed." -F Green
+}
+elseif ($office -eq '2') {
+    Write-Host "Installing Office Deployment Tool using WinGet..." -F Green
+    winget install Microsoft.OfficeDeploymentTool --accept-package-agreements --accept-source-agreements
+    & $Env:ProgramFiles\OfficeDeploymentTool\setup.exe /configure https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/office.xml
+    Write-Host "Activating Office" -F Green
+    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-office.ps1 | iex
+    Write-Host "PostInstall script completed." -F Green
+}
+else {
+    Write-Host "PostInstall script completed." -F Green
 }
 
 # Optional
