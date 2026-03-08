@@ -1,34 +1,24 @@
-{
-    "WPFTweaks":  [
-                      "WPFTweaksBraveDebloat",
-                      "WPFTweaksWPBT",
-                      "WPFTweaksRemoveEdge",
-                      "WPFTweaksEndTaskOnTaskbar",
-                      "WPFTweaksDisableExplorerAutoDiscovery",
-                      "WPFTweaksUTC",
-                      "WPFTweaksDeBloat",
-                      "WPFTweaksActivity",
-                      "WPFTweaksRemoveHome",
-                      "WPFTweaksPowershell7Tele",
-                      "WPFTweaksServices",
-                      "WPFTweaksConsumerFeatures",
-                      "WPFTweaksXboxRemoval",
-                      "WPFTweaksTelemetry",
-                      "WPFTweaksRemoveCopilot",
-                      "WPFTweaksEdgeDebloat",
-                      "WPFTweaksDeleteTempFiles",
-                      "WPFTweaksRemoveGallery",
-                      "WPFTweaksRemoveOneDrive",
-                      "WPFTweaksRightClickMenu",
-                      "WPFTweaksLocation"
-                  ],
-    "Install":  [
-
-                ],
-    "WPFInstall":  [
-
-                   ],
-    "WPFFeature":  [
-
-                   ]
-}
+[
+    "WPFTweaksActivity",
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksDisableExplorerAutoDiscovery",
+    "WPFTweaksWPBT",
+    "WPFTweaksDVR",
+    "WPFTweaksLocation",
+    "WPFTweaksServices",
+    "WPFTweaksTelemetry",
+    "WPFTweaksDeleteTempFiles",
+    "WPFTweaksEndTaskOnTaskbar",
+    "WPFTweaksPowershell7Tele",
+    "WPFTweaksBraveDebloat",
+    "WPFTweaksRemoveCopilot",
+    "WPFTweaksEdgeDebloat",
+    "WPFTweaksDeBloat",
+    "WPFTweaksRemoveGallery",
+    "WPFTweaksRemoveHome",
+    "WPFTweaksRemoveEdge",
+    "WPFTweaksRemoveOneDrive",
+    "WPFTweaksXboxRemoval",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksUTC"
+]
