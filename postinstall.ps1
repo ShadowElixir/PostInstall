@@ -35,7 +35,7 @@ winget install -e --id SumatraPDF.SumatraPDF --accept-package-agreements --accep
 winget install -e --id qBittorrent.qBittorrent --accept-package-agreements --accept-source-agreements
 winget install -e --id AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
-winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements
+winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements --custom "/COMPONENTS=gitlfs,scalar,assoc /o:EditorOption=Notepad++"
 winget install -e --id Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
 winget install -e --id Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
