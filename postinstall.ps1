@@ -40,6 +40,9 @@ winget install -e --id Klocman.BulkCrapUninstaller --accept-package-agreements -
 if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
 }
+if (Get-WmiObject Win32_VideoController | Where-Object { $_.Name -like "*NVIDIA*" }) {
+    winget install -e --id TechPowerUp.NVCleanstall --accept-package-agreements --accept-source-agreements
+}
 
 # Additional Configuration
 Write-Host "Configuring Winget-AutoUpdate" -F Blue
