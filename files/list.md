@@ -20,4 +20,5 @@ This script will install the following software using WinGet:
 - Betterbird (Email client based on Mozilla Thunderbird)
 - TrafficMonitor Lite (Internet monitoring on the taskbar or on a floating window)
 - OnlyOffice or Microsoft Office (Optional)
-- ExplorerPatcher (Only if user is using Windows 11)
+- ExplorerPatcher (Only installed if user is using windows 11)
+- NVCleanstall (Only installed if user has an nvidia gpu)
