@@ -123,6 +123,7 @@ elseif ($office -eq '2') {
     Write-Host "PostInstall script completed." -F Green
 }
 else {
+    Write-Host "Skipped Office installation." -F Red
     Write-Host "PostInstall script completed." -F Green
 }
 
