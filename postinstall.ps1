@@ -21,6 +21,7 @@ Write-Host "Installing Programs..." -F Green
 winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 winget install -e --id Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
 winget install -e --id yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
+winget install -e --id Nickvision.Parabolic  --accept-package-agreements --accept-source-agreements
 winget install -e --id Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
 winget install -e --id jurplel.qView --accept-package-agreements --accept-source-agreements
 winget install -e --id clsid2.mpc-hc --accept-package-agreements --accept-source-agreements
