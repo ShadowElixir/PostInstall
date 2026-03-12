@@ -45,14 +45,6 @@ if (Get-WmiObject Win32_VideoController | Where-Object { $_.Name -like "*NVIDIA*
     winget install -e --id TechPowerUp.NVCleanstall --accept-package-agreements --accept-source-agreements
 }
 
-# Additional Configuration
-Write-Host "Configuring Winget-AutoUpdate" -F Blue
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1" -OutFile "$Env:ProgramFiles\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
-
-Write-Host "Configuring LibreWolf" -F Blue
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg" -OutFile "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
@@ -127,6 +119,23 @@ else {
     Write-Host "Skipped Office installation." -F Red
     Write-Host "PostInstall script completed." -F Green
 }
+
+# Additional Configuration
+Write-Host "Configuring Winget-AutoUpdate" -F Blue
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1" -OutFile "$Env:ProgramFiles\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
+irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
+
+Write-Host "Configuring LibreWolf" -F Blue
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg" -OutFile "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
+Start-Sleep 2
+$css = "$env:TEMP\compact_extensions_panel.css"
+Invoke-WebRequest "https://raw.githubusercontent.com/MrOtherGuy/firefox-csshacks/refs/heads/master/chrome/compact_extensions_panel.css" -OutFile $css
+Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory | ForEach-Object {
+  New-Item -ItemType Directory -Force "$($_.FullName)\chrome" | Out-Null
+  Get-Content $css | Add-Content "$($_.FullName)\chrome\userChrome.css"
+}
+Remove-Item $css
 
 # Optional
 
