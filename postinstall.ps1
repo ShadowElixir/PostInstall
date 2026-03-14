@@ -110,7 +110,6 @@ else {
 if ($office -eq '1') {
     Write-Host "Installing OnlyOffice using WinGet..." -F Green
     winget install -e --id ONLYOFFICE.DesktopEditors --accept-package-agreements --accept-source-agreements
-    Write-Host "PostInstall script completed." -F Green
 }
 elseif ($office -eq '2') {
     Write-Host "Installing Office Deployment Tool using WinGet..." -F Green
@@ -119,11 +118,9 @@ elseif ($office -eq '2') {
     & $Env:ProgramFiles\OfficeDeploymentTool\setup.exe /configure https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/office.xml
     Write-Host "Activating Office" -F Green
     irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-office.ps1 | iex
-    Write-Host "PostInstall script completed." -F Green
 }
 else {
     Write-Host "Skipped Office installation." -F Red
-    Write-Host "PostInstall script completed." -F Green
 }
 
 # Additional Configuration
@@ -142,6 +139,8 @@ Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory | ForEach-Object {
   Get-Content $css | Add-Content "$($_.FullName)\chrome\userChrome.css"
 }
 Remove-Item $css
+
+Write-Host "PostInstall script completed." -F Green
 
 # Optional
 
