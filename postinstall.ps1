@@ -10,6 +10,12 @@ $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
 Write-Host "Activating Windows..." -F Green
 irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
 
+if ((Get-ComputerInfo).WindowsProductName -match "^Windows 10 (Home|Pro|Education|Enterprise)") {
+    Write-Output "Windows 10 non-LTSC Detected."
+    Write-Output "Activating ESU Updates..."
+    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-esu.ps1
+}
+
 # Install WinGet if not installed
 Write-Host "Installing WinGet..." -F Green
 Install-PackageProvider -Name NuGet -Force
