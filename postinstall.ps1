@@ -134,11 +134,19 @@ Rename-Item "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt
 echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
 
 Write-Host "Configuring LibreWolf" -F Blue
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg" -OutFile "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+
+echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.tabs.groups.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("identity.fxaccounts.enabled", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+
 if ($cookies -eq 'n') {
     echo 'defaultPref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
     echo 'defaultPref("privacy.sanitize.sanitizeOnShutdown", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 }
+
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
 $css = "$env:TEMP\compact_extensions_panel.css"
@@ -148,6 +156,8 @@ Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory | ForEach-Object {
   Get-Content $css | Add-Content "$($_.FullName)\chrome\userChrome.css"
 }
 Remove-Item $css
+
+# End of LibreWolf configuration
 
 Write-Host "PostInstall script completed." -F Green
 
