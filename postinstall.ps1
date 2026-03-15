@@ -56,7 +56,10 @@ if (Get-WmiObject Win32_VideoController | Where-Object { $_.Name -like "*NVIDIA*
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/profile.ps1 >> $PROFILE
+echo 'clear' >> $PROFILE
+echo 'echo ""' >> $PROFILE
+echo 'fastfetch -c paleofetch --logo "windows 7"' >> $PROFILE
+echo 'echo ""' >> $PROFILE
 
 # Debloat script (credit: christitustech)
 Write-Host "Debloating Windows..." -F Green
