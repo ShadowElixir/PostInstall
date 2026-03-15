@@ -13,7 +13,7 @@ irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/mai
 if ((Get-ComputerInfo).WindowsProductName -match "^Windows 10 (Home|Pro|Education|Enterprise)") {
     Write-Output "Windows 10 non-LTSC Detected."
     Write-Output "Activating ESU..."
-    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-esu.ps1
+    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-esu.ps1 | iex
 }
 
 # Install WinGet if not installed
