@@ -130,8 +130,8 @@ else {
 
 # Additional Configuration
 Write-Host "Configuring Winget-AutoUpdate" -F Blue
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1" -OutFile "$Env:ProgramFiles\Winget-AutoUpdate\mods\Romanitho.Winget-AutoUpdate-installed.ps1"
-irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/Romanitho.Winget-AutoUpdate-installed.ps1 | iex
+Rename-Item "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt" "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps_backup.txt" -ErrorAction SilentlyContinue
+echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
 
 Write-Host "Configuring LibreWolf" -F Blue
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg" -OutFile "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
