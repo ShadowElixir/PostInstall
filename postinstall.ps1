@@ -5,7 +5,7 @@ Write-Host "Press 2 for Microsoft Office"
 $office = Read-Host "Would you like to install an Office Suite? (0/1/2)"
 $store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
 $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
-$cookies = Read-Host "Would you like cookies to be cleared by default on exit in the Librewolf Browser? (y/n)"
+$cookies = Read-Host "Would you like cookies and site data to be cleared by default on exit in the Librewolf Browser? (y/n)"
 
 # Windows Activation (credit: massgravel)
 Write-Host "Activating Windows..." -F Green
