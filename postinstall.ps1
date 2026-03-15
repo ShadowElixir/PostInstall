@@ -5,6 +5,7 @@ Write-Host "Press 2 for Microsoft Office"
 $office = Read-Host "Would you like to install an Office Suite? (0/1/2)"
 $store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
 $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
+$cookies = Read-Host "Would you like cookies to be cleared by default on exit in the Librewolf Browser?" (y/n)
 
 # Windows Activation (credit: massgravel)
 Write-Host "Activating Windows..." -F Green
@@ -131,6 +132,10 @@ irm https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/f
 
 Write-Host "Configuring LibreWolf" -F Blue
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/librewolf.overrides.cfg" -OutFile "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+if ($cookies -eq 'n') {
+    echo 'defaultPref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+    echo 'defaultPref("privacy.sanitize.sanitizeOnShutdown", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+}
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
 $css = "$env:TEMP\compact_extensions_panel.css"
