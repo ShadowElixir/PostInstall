@@ -14,6 +14,7 @@ This script will install the following software using WinGet:
 - SumatraPDF
 - qBittorrent
 - Bulk Crap Uninstaller
+- Winaero Tweaker
 - File Converter
 - Autoruns (from Microsoft Sysinternals)
 - Git
