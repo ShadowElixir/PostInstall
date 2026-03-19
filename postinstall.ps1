@@ -80,7 +80,7 @@ if (Get-WmiObject Win32_VideoController | Where-Object { $_.Name -like "*NVIDIA*
 
 # Install basic PowerShell profile
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
-New-Item $env:userprofile\Documents\WindowsPowerShell -ItemType Directory
+New-Item "$env:userprofile\Documents\WindowsPowerShell" -ItemType Directory
 echo 'clear' >> $PROFILE
 echo 'echo ""' >> $PROFILE
 echo 'fastfetch -c paleofetch --logo "windows 7"' >> $PROFILE
@@ -167,6 +167,7 @@ echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
 
 Write-Host "Configuring LibreWolf" -F Blue
 
+New-Item "$env:userprofile\.librewolf" -ItemType Directory
 echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
