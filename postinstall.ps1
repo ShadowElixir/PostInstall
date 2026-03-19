@@ -3,18 +3,27 @@ Write-Host "Press 0 for No Office Suite"
 Write-Host "Press 1 for OnlyOffice"
 Write-Host "Press 2 for Microsoft Office"
 $office = Read-Host "Would you like to install an Office Suite? (0/1/2)"
+if ($office -eq '2') {
+    $oact = Read-Host "Would you like to activate Microsoft Office? (y/n)"
+}
+$act = Read-Host "Would you like to activate Windows? (y/n)"
 $store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
 $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
 $cookies = Read-Host "Would you like cookies and site data to be cleared by default on exit in the LibreWolf Browser? (y/n)"
-
-# Windows Activation (credit: massgravel)
-Write-Host "Activating Windows..." -F Green
-irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
-
 $productname = (Get-ComputerInfo).WindowsProductName
 if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
-    Write-Output "Windows 10 non-LTSC Detected."
-    Write-Output "Activating ESU..."
+    Write-Output "Windows 10 non-LTSC Detected." - Blue
+    $esu = Read-Host "Would you like to activate Extended Security Updates (Recommended)? (y/n)"
+}
+
+# Windows Activation (credit: massgravel)
+if ($act -eq 'y') {
+    Write-Host "Activating Windows..." -F Green
+    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act.ps1 | iex
+}
+
+if ($esu -eq 'y') {
+    Write-Host "Activating ESU..." -F Green
     irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-esu.ps1 | iex
 }
 
@@ -122,8 +131,10 @@ elseif ($office -eq '2') {
     winget install -e --id Microsoft.OfficeDeploymentTool --accept-package-agreements --accept-source-agreements
     Write-Host "Installing Office using ODT" -F Green
     & $Env:ProgramFiles\OfficeDeploymentTool\setup.exe /configure https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/office.xml
-    Write-Host "Activating Office" -F Green
-    irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-office.ps1 | iex
+    if ($oact -eq '1') {
+        Write-Host "Activating Office" -F Green
+        irm https://raw.githubusercontent.com/ShadowElixir/VariousScripts/refs/heads/main/scripts/act-office.ps1 | iex
+    }
 }
 else {
     Write-Host "Skipped Office installation." -F Red
