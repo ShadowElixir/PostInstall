@@ -1,19 +1,34 @@
-# User Choices
-Write-Host "Press 0 for No Office Suite"
-Write-Host "Press 1 for OnlyOffice"
-Write-Host "Press 2 for Microsoft Office"
-$office = Read-Host "Would you like to install an Office Suite? (0/1/2)"
-if ($office -eq '2') {
-    $oact = Read-Host "Would you like to activate Microsoft Office? (y/n)"
-}
-$act = Read-Host "Would you like to activate Windows? (y/n)"
-$store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
-$xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
-$cookies = Read-Host "Would you like cookies and site data to be cleared by default on exit in the LibreWolf Browser? (y/n)"
 $productname = (Get-ComputerInfo).WindowsProductName
-if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
-    Write-Output "Windows 10 non-LTSC Detected." - Blue
-    $esu = Read-Host "Would you like to activate Extended Security Updates (Recommended)? (y/n)"
+
+# User Choices
+$choices = Read-Host "Would you like to run this script with (d)efault or (c)ustomized settings? (d/c)"
+if ($choices -eq 'd') {
+    $office = '1'
+    $oact = 'y'
+    $act = 'y'
+    $store = 'y'
+    $xbox = 'y'
+    $cookies = 'y'
+    if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
+        $esu = 'y'
+    }
+}
+else {
+    Write-Host "Press 0 for No Office Suite"
+    Write-Host "Press 1 for OnlyOffice"
+    Write-Host "Press 2 for Microsoft Office"
+    $office = Read-Host "Would you like to install an Office Suite? (0/1/2)"
+    if ($office -eq '2') {
+        $oact = Read-Host "Would you like to activate Microsoft Office? (y/n)"
+    }
+    $act = Read-Host "Would you like to activate Windows? (y/n)"
+    $store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
+    $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
+    $cookies = Read-Host "Would you like cookies and site data to be cleared by default on exit in the LibreWolf Browser? (y/n)"
+    if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
+        Write-Host "Windows 10 non-LTSC Detected." -F Blue
+        $esu = Read-Host "Would you like to activate Extended Security Updates (Recommended)? (y/n)"
+    }
 }
 
 # Windows Activation (credit: massgravel)
