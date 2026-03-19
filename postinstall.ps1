@@ -150,13 +150,15 @@ if ($cookies -eq 'n') {
 
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
-$css = "$env:TEMP\compact_extensions_panel.css"
-Invoke-WebRequest "https://raw.githubusercontent.com/MrOtherGuy/firefox-csshacks/refs/heads/master/chrome/compact_extensions_panel.css" -OutFile $css
-Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory | ForEach-Object {
-  New-Item -ItemType Directory -Force "$($_.FullName)\chrome" | Out-Null
-  Get-Content $css | Add-Content "$($_.FullName)\chrome\userChrome.css"
-}
-Remove-Item $css
+
+$profile = Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory |
+  Sort-Object { (Get-ChildItem $_.FullName -Recurse -File | Measure-Object).Count } -Descending |
+  Select-Object -First 1
+
+New-Item -ItemType Directory -Force "$($profile.FullName)\chrome" | Out-Null
+
+Invoke-WebRequest "https://raw.githubusercontent.com/MrOtherGuy/firefox-csshacks/refs/heads/master/chrome/compact_extensions_panel.css" `
+  -OutFile "$($profile.FullName)\chrome\userChrome.css"
 
 # End of LibreWolf configuration
 
