@@ -4,7 +4,6 @@ $productname = (Get-ComputerInfo).WindowsProductName
 $choices = Read-Host "Would you like to run this script with (d)efault or (c)ustomized settings? (d/c)"
 if ($choices -eq 'd') {
     $office = '1'
-    $oact = 'n'
     $act = 'y'
     $store = 'y'
     $xbox = 'y'
