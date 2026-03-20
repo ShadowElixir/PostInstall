@@ -182,14 +182,14 @@ if ($cookies -eq 'n') {
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
 
-$profile = Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory |
+$librewolf = Get-ChildItem "$env:APPDATA\librewolf\Profiles" -Directory |
   Sort-Object { (Get-ChildItem $_.FullName -Recurse -File | Measure-Object).Count } -Descending |
   Select-Object -First 1
 
-New-Item -ItemType Directory -Force "$($profile.FullName)\chrome" | Out-Null
+New-Item -ItemType Directory -Force "$($librewolf.FullName)\chrome" | Out-Null
 
 Invoke-WebRequest "https://raw.githubusercontent.com/MrOtherGuy/firefox-csshacks/refs/heads/master/chrome/compact_extensions_panel.css" `
-  -OutFile "$($profile.FullName)\chrome\userChrome.css"
+  -OutFile "$($librewolf.FullName)\chrome\userChrome.css"
 
 # End of LibreWolf configuration
 
