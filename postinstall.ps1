@@ -91,7 +91,7 @@ Write-Host "Debloating Windows..." -F Green
 $log = "$env:TEMP\debloat.log"
 
 $p = Start-Process powershell `
-    -ArgumentList '-Command & ([ScriptBlock]::Create((irm https://github.com/ChrisTitusTech/winutil/releases/download/26.02.18/winutil.ps1))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/debloat.json -Run' `
+    -ArgumentList '-Command & ([ScriptBlock]::Create((irm https://christitus.com/win))) -Config https://raw.githubusercontent.com/ShadowElixir/PostInstall/refs/heads/main/files/debloat.json -Run' `
     -RedirectStandardOutput $log `
     -NoNewWindow `
     -PassThru
