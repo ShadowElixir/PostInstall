@@ -48,7 +48,6 @@ Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery -Force
 Repair-WinGetPackageManager -AllUsers
 
 # Overrides must be applied before librewolf installation.
-
 New-Item "$env:userprofile\.librewolf" -ItemType Directory
 echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
