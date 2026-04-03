@@ -174,10 +174,6 @@ else {
 }
 
 # Additional Configuration
-Write-Host "Configuring Winget-AutoUpdate" -F Blue
-Rename-Item "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt" "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps_backup.txt" -ErrorAction SilentlyContinue
-echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
-
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
 
