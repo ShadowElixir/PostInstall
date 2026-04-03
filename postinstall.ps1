@@ -47,6 +47,21 @@ Install-PackageProvider -Name NuGet -Force
 Install-Module -Name Microsoft.WinGet.Client -Repository PSGallery -Force
 Repair-WinGetPackageManager -AllUsers
 
+# Overrides must be applied before librewolf installation.
+
+New-Item "$env:userprofile\.librewolf" -ItemType Directory
+echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.tabs.groups.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("identity.fxaccounts.enabled", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+
+if ($cookies -eq 'n') {
+    echo 'defaultPref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+    echo 'defaultPref("privacy.sanitize.sanitizeOnShutdown", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+}
+
 # Essential programs
 Write-Host "Installing Programs..." -F Green
 winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
@@ -163,21 +178,6 @@ else {
 Write-Host "Configuring Winget-AutoUpdate" -F Blue
 Rename-Item "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt" "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps_backup.txt" -ErrorAction SilentlyContinue
 echo "" > "C:\Program Files\Winget-AutoUpdate\config\default_excluded_apps.txt"
-
-Write-Host "Configuring LibreWolf" -F Blue
-
-New-Item "$env:userprofile\.librewolf" -ItemType Directory
-echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-echo 'defaultPref("browser.tabs.groups.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-echo 'defaultPref("identity.fxaccounts.enabled", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-echo 'defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-
-if ($cookies -eq 'n') {
-    echo 'defaultPref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-    echo 'defaultPref("privacy.sanitize.sanitizeOnShutdown", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
-}
 
 Start-Process "$Env:ProgramFiles\LibreWolf\librewolf.exe" "https://github.com/ShadowElixir/PostInstall/tree/main#recommendations"
 Start-Sleep 2
