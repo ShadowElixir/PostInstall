@@ -13,7 +13,6 @@ This script will install the following software using WinGet:
 - OBS Studio (Screen recorder and virtual camera)
 - SumatraPDF
 - qBittorrent
-- Bulk Crap Uninstaller
 - Winaero Tweaker
 - File Converter
 - Autoruns (from Microsoft Sysinternals)
