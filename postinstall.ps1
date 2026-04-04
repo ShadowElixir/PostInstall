@@ -66,7 +66,6 @@ Write-Host "Installing Programs..." -F Green
 winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 winget install -e --id Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
 winget install -e --id yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
-winget install -e --id Nickvision.Parabolic  --accept-package-agreements --accept-source-agreements
 winget install -e --id Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
 winget install -e --id jurplel.qView --accept-package-agreements --accept-source-agreements
 winget install -e --id clsid2.mpc-hc --accept-package-agreements --accept-source-agreements
@@ -82,7 +81,6 @@ winget install -e --id Microsoft.Sysinternals.Autoruns --accept-package-agreemen
 winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements --custom "/COMPONENTS=gitlfs,scalar,assoc /o:EditorOption=Notepad++"
 winget install -e --id Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
-winget install -e --id Klocman.BulkCrapUninstaller --accept-package-agreements --accept-source-agreements
 winget install -e --id winaero.tweaker --accept-package-agreements --accept-source-agreements
 if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
