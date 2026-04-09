@@ -7,7 +7,7 @@ if ($choices -eq 'd') {
     $act = 'y'
     $store = 'y'
     $xbox = 'y'
-    $cookies = 'y'
+    $cookies = 'n'
     if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
         $esu = 'y'
     }
