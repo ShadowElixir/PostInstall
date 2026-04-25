@@ -55,6 +55,8 @@ echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.
 echo 'defaultPref("browser.tabs.groups.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("identity.fxaccounts.enabled", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.ml.linkPreview.longPress", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
+echo 'defaultPref("browser.ml.linkPreview.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 
 if ($cookies -eq 'n') {
     echo 'defaultPref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
