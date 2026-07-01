@@ -49,7 +49,6 @@ Repair-WinGetPackageManager -AllUsers
 
 # Overrides must be applied before librewolf installation.
 New-Item "$env:userprofile\.librewolf" -ItemType Directory
-# echo 'defaultPref("webgl.disabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("privacy.resistFingerprinting", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("browser.translations.enable", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
 echo 'defaultPref("browser.tabs.groups.enabled", false);' >> "$env:USERPROFILE\.librewolf\librewolf.overrides.cfg"
@@ -83,7 +82,6 @@ winget install -e --id Microsoft.Sysinternals.Autoruns --accept-package-agreemen
 winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements --custom "/COMPONENTS=gitlfs,scalar,assoc /o:EditorOption=Notepad++"
 winget install -e --id Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
-winget install -e --id winaero.tweaker --accept-package-agreements --accept-source-agreements
 if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
 }
