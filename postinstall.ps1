@@ -7,6 +7,7 @@ if ($choices -eq 'd') {
     $act = 'y'
     $store = 'y'
     $xbox = 'y'
+    $autoupdates = 'y'
     $cookies = 'n'
     if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
         $esu = 'y'
@@ -23,6 +24,7 @@ else {
     $act = Read-Host "Would you like to activate Windows? (y/n)"
     $store = Read-Host "Would you like to keep or install the Microsoft Store? (y/n)"
     $xbox = Read-Host "Would you like to keep or install Xbox components? (y/n)"
+    $autoupdates = Read-Host "Would you like all installed applications to auto-update on startup? (y/n)" 
     $cookies = Read-Host "Would you like cookies and site data to be cleared by default on exit in the LibreWolf Browser? (y/n)"
     if ($productname -match "^Windows 10" -and $productname -notmatch "LTSC|LTSB") {
         Write-Host "Windows 10 non-LTSC Detected." -F Blue
@@ -64,7 +66,6 @@ if ($cookies -eq 'n') {
 
 # Essential programs
 Write-Host "Installing Programs..." -F Green
-winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
 winget install -e --id Fastfetch-cli.Fastfetch --accept-package-agreements --accept-source-agreements
 winget install -e --id yt-dlp.yt-dlp --accept-package-agreements --accept-source-agreements
 winget install -e --id Notepad++.Notepad++ --accept-package-agreements --accept-source-agreements
@@ -83,6 +84,9 @@ winget install -e --id Git.Git --accept-package-agreements --accept-source-agree
 winget install -e --id Betterbird.Betterbird --accept-package-agreements --accept-source-agreements
 winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreements --accept-source-agreements
 winget install -e --id winaero.tweaker --accept-package-agreements --accept-source-agreements
+if ($autoupdates -eq 'y') {
+    winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
+}
 if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
 }
