@@ -76,7 +76,6 @@ winget install -e --id 7zip.7zip --accept-package-agreements --accept-source-agr
 winget install -e --id LibreWolf.LibreWolf --accept-package-agreements --accept-source-agreements
 winget install -e --id Brave.Brave --accept-package-agreements --accept-source-agreements
 winget install -e --id OBSProject.OBSStudio --accept-package-agreements --accept-source-agreements
-winget install -e --id SumatraPDF.SumatraPDF --accept-package-agreements --accept-source-agreements
 winget install -e --id qBittorrent.qBittorrent --accept-package-agreements --accept-source-agreements
 winget install -e --id AdrienAllard.FileConverter --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.Sysinternals.Autoruns --accept-package-agreements --accept-source-agreements
@@ -86,6 +85,9 @@ winget install -e --id zhongyang219.TrafficMonitor.Lite --accept-package-agreeme
 winget install -e --id winaero.tweaker --accept-package-agreements --accept-source-agreements
 if ($autoupdates -eq 'y') {
     winget install -e --id Romanitho.Winget-AutoUpdate --accept-package-agreements --accept-source-agreements --custom "USERCONTEXT=1 UPDATESINTERVAL=Daily"
+}
+if ($office -ne '1') {
+    winget install -e --id SumatraPDF.SumatraPDF --accept-package-agreements --accept-source-agreements
 }
 if ([int](Get-CimInstance Win32_OperatingSystem).BuildNumber -ge 22000) {
     winget install -e --id valinet.ExplorerPatcher --accept-package-agreements --accept-source-agreements
